@@ -8,16 +8,19 @@ const messages = [
 
 export default function App() {
   const [step, setStep] = useState(1)
+
   function previousStep() {
     if (step > 1) {
       setStep(step - 1)
     }
   }
+
   function nextStep() {
     if (step < 3) {
       setStep(step + 1)
     }
   }
+
   return (
     <div className="steps">
       <div className="numbers">
