@@ -33,10 +33,33 @@ export default function App() {
         </div>
         <p className="message">Step {step}: {messages[step - 1]}</p>
         <div className="buttons">
-          <button onClick={previousStep} style={{ backgroundColor: "rgb(121, 80, 242)", color: "rgb(255, 255, 255)" }}>Previous</button>
-          <button onClick={nextStep} style={{ backgroundColor: "rgb(121, 80, 242)", color: "rgb(255, 255, 255)" }}>Next</button>
+          <Button
+            onClick={previousStep}
+            bgColor={"rgb(121,80,242)"}
+            color={"rgb(255, 255, 255)"}>
+            <span>👈</span>Previous
+          </Button>
+          <Button
+            onClick={nextStep}
+            bgColor={"rgb(121,80,242)"}
+            color={"rgb(255, 255, 255)"}>
+            Next<span>👉</span>
+          </Button>
         </div>
       </div>}
   </>
+  )
+}
+
+function Button({ onClick, bgColor, color, children }) {
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        backgroundColor: bgColor,
+        color: color
+      }}>
+      {children}
+    </button>
   )
 }
