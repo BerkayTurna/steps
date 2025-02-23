@@ -31,7 +31,16 @@ export default function App() {
           <div className={`${step >= 2 ? "active" : ""}`}>2</div>
           <div className={`${step >= 3 ? "active" : ""}`}>3</div>
         </div>
-        <p className="message">Step {step}: {messages[step - 1]}</p>
+        <StepMessage step={step}>
+          <div className="buttons">
+            <Button
+              onClick={() => alert(messages[step - 1])}
+              bgColor={"#e7e7e7"}
+              color={"#333"}>
+              Learn More
+            </Button>
+          </div>
+        </StepMessage>
         <div className="buttons">
           <Button
             onClick={previousStep}
@@ -62,4 +71,8 @@ function Button({ onClick, bgColor, color, children }) {
       {children}
     </button>
   )
+}
+
+function StepMessage({ step, children }) {
+  return <p className="message">Step {step}: {children}</p>
 }
